@@ -1,0 +1,75 @@
+<!--
+
+    Copyright (C) 2012  Wiley Snyder
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or 
+     any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    
+    Any other questions or concerns contact wiley@wileynet.com
+
+-->
+
+$def with (r,m,ms,c,mcount,i)
+
+<div id="menu_container">
+
+<p>
+<div id="menu">
+<div id="menu_head">menus for $:r.name :
+
+$for key,value in m :
+        | <a href="/manager/menu/view/$:key" >$:value.name</a>
+        
+</div>        
+<h1>$:r.name</h1>
+<h2>$:r.phone</h2>
+<address>$:r.address</address>
+<address>$:r.city, $:r.state</address>
+<div id="edit"> <a href="/manager/edit/restaurant" >  << edit </a> </div>
+<hr />
+
+<h3>menu : ( $:ms.name )</h3>
+<div id="edit"> <a href="/manager/editmenu/$:ms.key().id()" > << edit </a> </div>
+<hr />
+
+
+$if not c :
+	<h2>Add a Category</h2>
+	add some categories - i.e. ( salads, beverages, appetizers )
+	<div id="edit"> <a href="/manager/add/category" > << add </a> </div>
+    <hr />
+
+$else :
+	$for key, value in i :
+		
+    	<div class="category"><h2 class="category">  $:key.split('|')[1]</h2> ( <a href="/manager/editcategory/$:key.split('|')[0]"> edit </a> )</div>
+    	<div class="mainitem">
+    
+    	$for x in value :
+        	<div class="item">
+            $if x.itemNumber :
+            	<div class="number">( # $:x.itemNumber )</div> <br />
+            
+            <h3 class="item">$:x.itemName</h3> ( <a href="/manager/edititem/$:x.key().id()" > edit </a> ) <br />
+            $:x.itemDesc <br />
+            $:x.itemPrice <br />
+            </div>
+        </div>
+        
+        $if value == [] :
+        	no items added for this category yet -<a href="/manager/additem/$:key.split('|')[0]" > add one >></a>
+	<hr  />
+    
+</div>
+</p>
+</div>

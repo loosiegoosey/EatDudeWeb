@@ -1,0 +1,8 @@
+$def with (form)
+<div id="form1">
+<form name="test" method="POST"> 
+$if not form.valid: <p>Sorry, your input was invalid.</p>
+$:form.render()
+<input type="submit" value="save changes" />
+</form>
+</div>

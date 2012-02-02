@@ -1,0 +1,8 @@
+$def with (form, menu_id)
+<h3>Categories</h3>
+<form name="test" method="POST"> 
+$if not form.valid: <p>Sorry, your input was invalid.</p>
+$:form.render()
+<input type="hidden" id="menu_id" value="$:menu_id" name="menu_id" />
+<input type="submit" value="Add Categories" />
+</form>

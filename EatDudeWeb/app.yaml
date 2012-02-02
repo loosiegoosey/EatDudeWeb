@@ -1,0 +1,56 @@
+application: wileynet5
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /favicon.ico
+  static_files: public/favicon.ico
+  upload: public/favicon.ico
+
+- url: /css
+  static_dir: public/css
+
+- url: /css/images
+  static_dir: public/css/images
+
+- url: /robots.txt
+  static_files: public/robots.txt
+  upload: public/robots.txt
+
+- url: /android.html
+  static_files: public/android.html
+  upload: public/android.html
+
+- url: /iphone.html
+  static_files: public/iphone.html
+  upload: public/iphone.html
+
+- url: /support.html
+  static_files: public/support.html
+  upload: public/support.html
+
+- url: /about.html
+  static_files: public/about.html
+  upload: public/about.html
+
+- url: /admin/.*
+  script: admin.py
+  login: admin
+
+- url: /.*
+  script: main.py
+
+- url: /user/(.*)
+  script: /user/\1.py
+  login: required
+
+- url: /manager/(.*?)/(.*)
+  script: /manager/\2/\1.py
+  login: required
+
+
+builtins:
+- datastore_admin: on
+- remote_api: on

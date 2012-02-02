@@ -1,0 +1,65 @@
+body{
+	background-color:#09F;
+}
+
+.item{
+	width:50%;
+	margin-bottom:25px;
+}
+#top{
+	text-align:left;
+	background-color:#0CF;
+	width:800px;
+	margin:0 auto;
+}
+#topnav{
+	text-align:right;
+	width:800px;
+	margin:0 auto;
+}
+#nav{
+	margin:0 auto;
+	width:800px;
+	text-align:left;
+	padding:5px 5px 5px 5px;
+}
+#menu_container{
+	width:800px;
+	margin:0 auto;
+}
+#menu_head{
+	background-color:#CCC;
+}
+#menu{
+	margin:0 auto;
+	width:800px;
+	background-color:#FFF;
+	padding:5px 5px 5px 5px;
+}
+#edit {
+	text-align:right;
+}
+#form1{
+	margin:0 auto;
+	background-color:#0CF;
+	width:800px;
+}
+
+h2.category {
+	font-style:italic;
+	display: inline;
+}
+h3.item {
+	display: inline;
+}
+.number{
+	font-size:12px;
+	font-weight:bold;
+	display:inline;
+}
+.category{
+margin-bottom:25px;
+}
+.mainitem{
+	margin-left:25px ;
+}

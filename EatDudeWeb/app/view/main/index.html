@@ -1,0 +1,80 @@
+<!--
+
+    Copyright (C) 2012  Wiley Snyder
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or 
+     any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    
+    Any other questions or concerns contact wiley@wileynet.com
+
+-->
+
+$def with (name,greeting,hasprofile,latest_restaurants)
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Eat Dude - Mobile Restaurant Menus</title>
+<link href="/css/public.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="container">
+	
+    <div id="header">&nbsp;</div>
+<div id="main">
+    		<div id="left">&nbsp;</div>
+			<div id="stage">
+            <p><a href="http://www.eatdude.com"><img src="/css/images/eatdude.gif" alt="eat dude" border="0" longdesc="eat dude mobile restaurant menus" /></a>
+              </p>
+            <p>$:greeting
+            $if hasprofile: 
+            		 | <a href="/invite/">my account</a>
+                
+            </p>
+            <div id="intro" class="listone">
+            Use our <strong>free</strong> version of EatDude! to ... <br />
+            <p>
+            <em>Restaurant Patrons</em> : Put your favorite take-out <strong>menu</strong> on your phone. </p>
+            <p>
+            <em>Restaurant Owners</em> : Use our menu builder and management app to make your restaurant menu available to <strong>mobile</strong> devices. </p>
+              <h4>Latest Menus  :</h4>
+              <div id="latest">
+              <p>
+              <ul>
+              $for key,value in latest_restaurants :
+					<li>$:key - $:value</li>
+              </ul>
+              </p>
+              </div>
+              
+            </div>
+            <p><a href="/android.html" title="android app">android app</a> | <a href="/iphone.html" title="iphone app">iphone app</a> | <a href="/support.html" title="support">support</a> | <a href="/about.html" title="about">about</a></p>
+</div>
+
+    		<div id="right">&nbsp;</div>
+            
+            
+        </div><!--/main-->
+        
+    <div id="foot">
+      <div id="poweredby">
+        <p>&nbsp;</p>
+        <p><a href="http://code.google.com/appengine/" title="google app engine" target="_blank">google app engine</a> | <a href="http://webpy.org/" title="webpy" target="_blank">webpy</a> | <a href="http://developer.android.com" title="android" target="_blank">android</a> | <a href="http://wileynet.com" title="android" target="_blank">wileynet</a></p>
+      </div>
+      <p>&copy; 2011 eatdude.com 1.0</p>
+    </div>
+
+</div><!--/container-->
+</body>
+</html>

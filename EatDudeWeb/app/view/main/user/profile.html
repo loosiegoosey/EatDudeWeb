@@ -1,0 +1,45 @@
+$def with (nest,user,isadmin,restaurant_selected,r,m)
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+<title>admin</title>
+</head>
+<body>
+
+<div id="top"> <a href="/">Home</a> | <a href="/user/" > Dashboard</a> | <a href="/manager/help">Help</a> | logged in as : $:user </div>
+<div id="topnav">
+	
+    <!-- now editing -->
+    $for key,value in r :
+    		$if value != '0' :
+				you are now editing - <a href="/manager/main/view/$:key" >$:value</a>
+        
+    $if m :
+    $for key,value in m :
+         	$if value != '0' :
+    	 		> <a href="/manager/menu/view/$:key" >$:value</a>
+
+</div>
+
+	$if restaurant_selected :
+		<div id="nav">Edit Options > <a href="/user/restaurant">Restaurant</a> | <a href="/user/menu">Menu</a>
+        	$if isadmin :
+            	 | <a href="/user/admin">Admin</a>
+        
+    $if not m :
+    	</div>
+        
+    $for key,value in m :
+        	$if value != '0' :
+    	 		 | <a href="/user/category">Category</a> | <a href="/user/item">Item</a></div>
+
+
+
+$:nest
+
+
+</body>
+</html>

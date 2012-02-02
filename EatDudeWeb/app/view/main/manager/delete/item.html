@@ -1,0 +1,10 @@
+$def with (form,restaurant_id)
+<div id="form1">
+<h2>Delete this item</h2>
+<form name="test" method="POST"> 
+$if not form.valid: <p>Sorry, your input was invalid.</p>
+$:form.render()
+<input type="submit" value="Delete" />
+<input type="hidden" name="restaurant_id" id="restaurant_id" value="$:restaurant_id" />
+</form>
+</div>
